@@ -1,0 +1,21 @@
+#global_costmap:
+#  global_frame: map
+  #update_frequency: 40.0
+ # publish_frequency: 40.0
+  #transform_tolerance: 0.2
+ # resolution: 0.1
+global_frame: map
+rolling_window: false
+track_unknown_space: true
+
+plugins:
+  - {name: static_layer,            type: "costmap_2d::StaticLayer"}
+  - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+
+static_layer:
+  map_topic: /map
+  subscribe_to_updates: true
+
+inflation_layer:
+  inflation_radius: 0.2
+  cost_scaling_factor: 1.0
